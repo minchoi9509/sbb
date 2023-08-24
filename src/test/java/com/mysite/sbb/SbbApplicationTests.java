@@ -8,6 +8,7 @@ class SbbApplicationTests {
 
 	@Test
 	void contextLoads() {
+		system.out.println("변화");
 	}
 
 }
