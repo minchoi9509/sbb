@@ -1,0 +1,19 @@
+name: auto labeling
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - main
+jobs:
+  update_release_draft:
+      # 리파지토리에 대한 권한 설정
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Labels
+        id: labeler
+        uses: jimschubert/labeler-action@v1
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
